@@ -7,16 +7,21 @@ def convert():
 		if n == 1:
 			arr = input("text: ")   # takes the whole commandline stuff
 			l = list(map(str,arr.split())) # split those numbers with space( becomes ['2','3','6','6','5']) and then map every element into int (becomes [2,3,6,6,5])
+			hex_copy = []
 			for x in range(len(l)):
 				res = [] 
 				res[:] = l[x]
+				space = ' '
 				for char in range(len(res)):
 					res[char] = ord(res[char])
 					res[char] = hex(res[char])
 					hx = []
 					hx[:] = res[char]
-					hx[2] = hx[2] + hx[3]
-					print(hx[2])	
+					hx[2] = hx[2] + hx[3] + space
+					hex_copy.append(hx[2])
+			for x in range((len(hex_copy)-1)):
+				hex_copy[0] =  hex_copy[0] + hex_copy[x+1]
+			print(hex_copy[0])	
 			c = int(input("Another one? '1' or '0': "))
 			if c == 1:
 				continue
