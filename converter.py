@@ -34,10 +34,13 @@ def convert():
 				frti1(hex_output,1)
 				print(hex_output[0])
 				platz(70)
-				try:
-					c = int(input("Another text phrase/char ? '1' or '0':"))
-				except ValueError :
-					pl10(1,0)
+				while con == 2:	
+					try:
+						c = int(input("Another text phrase/char ? '1' or '0':"))
+						break
+					except ValueError :
+						pl10(1,0)
+						continue
 				if c == 1:
 					continue
 				else :
