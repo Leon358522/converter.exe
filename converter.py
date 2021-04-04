@@ -49,26 +49,28 @@ def convert():
 		else : 
 			while n1 == 2:
 				n4 = 0
-				n5 = 0
-				n6 = 0
 				while con == 2:
 					hex_input = input("Seperate with space '5E6971 647E 74':")
+					hex_input += ' '
 					dec_output = list(map(str,hex_input.split(' ')))
 					output = []
-					if (len(dec_output)==1):
+					if (len(dec_output)==1):        #kein Space in der Eingabe
+						n5 = 0
+						n6 = 0
 						for word in dec_output:
-							n5 = n5+1
+							n5 += 1
 						n6 = n6+n5
 						n5 = 0
 					else:
-						for word in dec_output:
-							for char in word:
-								n5 =n5 + 1
-							n6 =n6 + n5
+						n5 = 0
+						n6 = 0
+						for word in dec_output:     #für jedes seperrierte Element
+							for char in word:		#erhöhe pro Zahl n5 um 1
+								n5 += 1
+							n6 = n6 + n5
 							n5 = 0
-					n6 = n6%2
-					if ((n6 == 1)):
-						print("Please enter Hex code only") 
+					if ((n6%2) == 1):
+						print("Please enter Hex code only / immer 2 Elemente pro HEX") 
 						continue
 					else :
 						break
